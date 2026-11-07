@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#1F6F5C"/>
+  <!-- open ledger book -->
+  <path d="M256 150 C210 120 140 118 100 132 L100 370 C140 356 210 358 256 388 Z" fill="#FFFFFF"/>
+  <path d="M256 150 C302 120 372 118 412 132 L412 370 C372 356 302 358 256 388 Z" fill="#F3EFE3"/>
+  <rect x="251" y="150" width="10" height="238" fill="#14513F"/>
+  <!-- ruled lines -->
+  <g stroke="#C9D8D2" stroke-width="8" stroke-linecap="round">
+    <line x1="132" y1="320" x2="215" y2="330"/>
+    <line x1="300" y1="330" x2="380" y2="320"/>
+    <line x1="300" y1="296" x2="380" y2="286"/>
+  </g>
+  <!-- rupee on left page -->
+  <g fill="none" stroke="#1F6F5C" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="140" y1="188" x2="214" y2="196"/>
+    <line x1="140" y1="222" x2="214" y2="230"/>
+    <path d="M144 188 C190 190 196 236 150 242 L206 296"/>
+  </g>
+  <!-- amber paid badge -->
+  <circle cx="352" cy="214" r="46" fill="#F2A93B"/>
+  <path d="M330 214 l16 18 l30 -34" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

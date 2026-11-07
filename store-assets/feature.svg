@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500">
+  <rect width="1024" height="500" fill="#1F6F5C"/>
+  <circle cx="900" cy="80" r="220" fill="#14513F"/>
+  <g transform="translate(70,90) scale(0.62)"><image href="logo.png" width="512" height="512"/></g>
+  <text x="430" y="230" font-family="Helvetica, Arial, sans-serif" font-size="84" font-weight="700" fill="#fff">Tuition Khata</text>
+  <text x="432" y="300" font-family="Helvetica, Arial, sans-serif" font-size="34" fill="#F6F4EE">Fee &amp; dues tracker for tutors</text>
+  <text x="432" y="350" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#F2A93B">Works 100% offline</text>
+</svg>
