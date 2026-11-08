@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Text, View } from 'react-native';
 import { Btn, Card, Field, Header, SectionTitle } from '../components/UI';
+import { DateField } from '../components/DatePicker';
 import Icon from '../components/Icon';
 import { useStore } from '../store';
 import { parseAmount } from './StudentForm';
@@ -39,7 +40,7 @@ export default function FeeChange({ studentId, nav }: { studentId: string; nav: 
       <ScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 24 }} keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={false}>
         <Card>
           <Field label={`${t.newFee} (${s.currency})`} value={fee} onChangeText={setFee} keyboardType="decimal-pad" error={errors.fee} />
-          <Field label={t.effectiveFrom} value={month} onChangeText={setMonth} error={errors.month} />
+          <DateField mode="month" label={t.effectiveFrom} value={month} onChange={setMonth} error={errors.month} lang={lang} min={s.joinDate.slice(0, 7)} todayLabel={t.thisMonth} cancelLabel={t.cancel} />
           <Text style={{ color: colors.muted, fontSize: 12, marginTop: -6, marginBottom: 14 }}>{t.feeChangeHint}</Text>
           <Btn title={t.save} icon="check" onPress={submit} />
         </Card>
@@ -49,7 +50,7 @@ export default function FeeChange({ studentId, nav }: { studentId: string; nav: 
             <View key={h.month + i} style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 13, borderBottomWidth: i === history.length - 1 ? 0 : 1, borderBottomColor: colors.border }}>
               <View style={{ flex: 1 }}>
                 <Text style={{ fontWeight: '700', color: colors.text }}>{monthLabel(h.month, lang)}</Text>
-                <Text style={{ color: colors.muted, fontSize: 12 }}>{h.start ? t.startingFee : t.effectiveFrom.replace(' (YYYY-MM)', '')}</Text>
+                <Text style={{ color: colors.muted, fontSize: 12 }}>{h.start ? t.startingFee : t.effectiveFrom}</Text>
               </View>
               <Text style={{ fontWeight: '800', color: colors.primary, marginRight: h.start ? 0 : 12 }}>{formatAmount(h.amount, s.currency)}</Text>
               {h.start ? null : (

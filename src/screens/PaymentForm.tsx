@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView, Text, View } from 'react-native';
 import { Avatar, Btn, Card, Chip, ChipRow, Field, Header } from '../components/UI';
+import { DateField } from '../components/DatePicker';
 import { uid, useStore } from '../store';
 import { parseAmount } from './StudentForm';
 import { buildLedger, feeForMonth } from '../calc';
@@ -74,7 +75,7 @@ export default function PaymentForm({ studentId, paymentId, nav }: { studentId: 
             ))}
           </ChipRow>
           <Field label={`${t.amount} (${s.currency})`} value={amount} onChangeText={v => { setAmount(v); setErrors(x => ({ ...x, amount: '' })); }} keyboardType="decimal-pad" error={errors.amount} />
-          <Field label={t.paymentDate} value={date} onChangeText={setDate} error={errors.date} />
+          <DateField label={t.paymentDate} value={date} onChange={setDate} error={errors.date} lang={lang} todayLabel={t.today} cancelLabel={t.cancel} />
           <Field label={t.note} value={note} onChangeText={setNote} />
         </Card>
         <Btn title={t.save} icon="check" onPress={submit} />

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { showDialog } from '../components/Dialog';
 import { KeyboardAvoidingView, Platform, Pressable, ScrollView, Switch, Text, View } from 'react-native';
 import { Btn, Card, Chip, ChipRow, CurrencyPicker, Field, Header } from '../components/UI';
+import { DateField } from '../components/DatePicker';
 import Icon from '../components/Icon';
 import { uid, useStore } from '../store';
 import { feeForMonth } from '../calc';
@@ -122,7 +123,7 @@ export default function StudentForm({ id, nav }: { id?: string; nav: Nav }) {
               <Field label={t.startingFee} value={fee} onChangeText={setFee} keyboardType="decimal-pad" error={errors.fee} />
             </>
           )}
-          <Field label={t.joinDate} value={joinDate} onChangeText={setJoinDate} error={errors.joinDate} />
+          <DateField label={t.joinDate} value={joinDate} onChange={setJoinDate} error={errors.joinDate} lang={lang} todayLabel={t.today} cancelLabel={t.cancel} />
           <Text style={{ fontSize: 13, color: colors.muted, marginBottom: 8, fontWeight: '700' }}>{t.billing}</Text>
           {modes.map(m => {
             const on = billing === m.key;
@@ -150,7 +151,7 @@ export default function StudentForm({ id, nav }: { id?: string; nav: Nav }) {
           </View>
           {stopped ? (
             <View style={{ marginTop: 14 }}>
-              <Field label={t.endDate} value={endDate} onChangeText={setEndDate} error={errors.endDate} />
+              <DateField label={t.endDate} value={endDate} onChange={setEndDate} error={errors.endDate} lang={lang} min={isValidDay(joinDate) ? joinDate : undefined} todayLabel={t.today} cancelLabel={t.cancel} />
               <Text style={{ color: colors.muted, fontSize: 12, marginTop: -8 }}>{t.stoppedHint}</Text>
             </View>
           ) : null}

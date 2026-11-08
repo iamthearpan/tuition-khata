@@ -62,7 +62,7 @@ export default function StudentDetail({ id, nav }: { id: string; nav: Nav }) {
             <View style={{ flex: 1, marginLeft: 14 }}>
               <Text style={{ color: '#fff', fontSize: 20, fontWeight: '800' }} numberOfLines={1}>{s.name}</Text>
               <Text style={{ color: '#BFE3D7', fontSize: 13 }} numberOfLines={1}>
-                {[batch, s.guardian, active ? null : `${t.stopped} · ${dayLabel(s.endDate!)}`].filter(Boolean).join('  ·  ') || `${t.joinDate.replace(' (YYYY-MM-DD)', '')} ${dayLabel(s.joinDate)}`}
+                {[batch, s.guardian, active ? null : `${t.stopped} · ${dayLabel(s.endDate!)}`].filter(Boolean).join('  ·  ') || `${t.joinDate} ${dayLabel(s.joinDate)}`}
               </Text>
             </View>
           </View>
